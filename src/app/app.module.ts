@@ -9,8 +9,8 @@ import { ProductComponent } from './domains/products/components/product/product.
 @NgModule({
   declarations: [
     AppComponent,
-    ListComponent,
-    ProductComponent
+    // ListComponent,
+    // ProductComponent
   ],
   imports: [
     BrowserModule,
