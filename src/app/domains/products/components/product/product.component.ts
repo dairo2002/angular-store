@@ -1,16 +1,24 @@
+import { Component, EventEmitter, Input, Output } from '@angular/core'
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core'
-import { ListComponent } from '../../pages/list/list.component';
-import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-product',
   standalone: true,
-  imports: [CommonModule, RouterOutlet],
-  template: '<router-outlet/>',
-  // styleUrls: ['./product.component.css']
+  imports: [CommonModule],
+  templateUrl: './product.component.html',
+  styleUrls: ['./product.component.css']
 })
 export class ProductComponent {
-  img = "https://picsum.photos/640/640?=" + Math.random() 
+  // img = "https://picsum.photos/640/640?=" + Math.random() 
+  @Input({ required: true }) img: string = ""; 
+  @Input({ required: true }) price: number = 0; 
+  @Input({ required: true }) title: string = "";
+  
+  @Output() addToCart = new EventEmitter;
+
+  addToCartHander(){
+    console.log("click")
+    this.addToCart.emit("Mensaje desde el hijo" + this.title )
+  }
 
 }
